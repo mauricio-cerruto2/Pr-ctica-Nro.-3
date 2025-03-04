@@ -1,0 +1,93 @@
+Codigo en Python:
+class Cola:
+    def __init__(self, n):
+        self.n = n
+        self.arreglo = [None] * n
+        self.inicio = 0
+        self.fin = -1
+
+    def insert(self, e):
+        if self.isFull():
+            raise Exception("La cola está llena")
+        self.fin = (self.fin + 1) % self.n
+        self.arreglo[self.fin] = e
+
+    def remove(self):
+        if self.isEmpty():
+            raise Exception("La cola está vacía")
+        e = self.arreglo[self.inicio]
+        self.inicio = (self.inicio + 1) % self.n
+        return e
+
+    def peek(self):
+        if self.isEmpty():
+            raise Exception("La cola está vacía")
+        return self.arreglo[self.inicio]
+
+    def isEmpty(self):
+        return self.size() == 0
+
+    def isFull(self):
+        return self.size() == self.n
+
+    def size(self):
+        if self.fin >= self.inicio:
+            return self.fin - self.inicio + 1
+        else:
+            return self.n - self.inicio + self.fin + 1
+
+Codigo en Java:
+
+public class Cola {
+    private long[] arreglo;
+    private int inicio;
+    private int fin;
+    private int n;
+
+    public Cola(int n) {
+        this.n = n;
+        this.arreglo = new long[n];
+        this.inicio = 0;
+        this.fin = -1;
+    }
+
+    public void insert(long e) {
+        if (isFull()) {
+            throw new IllegalStateException("La cola está llena");
+        }
+        fin = (fin + 1) % n;
+        arreglo[fin] = e;
+    }
+
+    public long remove() {
+        if (isEmpty()) {
+            throw new IllegalStateException("La cola está vacía");
+        }
+        long e = arreglo[inicio];
+        inicio = (inicio + 1) % n;
+        return e;
+    }
+
+    public long peek() {
+        if (isEmpty()) {
+            throw new IllegalStateException("La cola está vacía");
+        }
+        return arreglo[inicio];
+    }
+
+    public boolean isEmpty() {
+        return size() == 0;
+    }
+
+    public boolean isFull() {
+        return size() == n;
+    }
+
+    public int size() {
+        if (fin >= inicio) {
+            return fin - inicio + 1;
+        } else {
+            return n - inicio + fin + 1;
+        }
+    }
+}
