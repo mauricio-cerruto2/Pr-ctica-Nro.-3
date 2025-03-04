@@ -1,0 +1,68 @@
+Codigo en Python:
+class Pila:
+    def __init__(self, n):
+        self.n = n
+        self.ameglo = [None] * n
+        self.top = -1
+
+    def push(self, e):
+        if self.isFull():
+            raise Exception("La pila está llena")
+        self.top += 1
+        self.ameglo[self.top] = e
+
+    def pop(self):
+        if self.isEmpty():
+            raise Exception("La pila está vacía")
+        e = self.ameglo[self.top]
+        self.top -= 1
+        return e
+
+    def peek(self):
+        if self.isEmpty():
+            raise Exception("La pila está vacía")
+        return self.ameglo[self.top]
+
+    def isEmpty(self):
+        return self.top == -1
+
+    def isFull(self):
+        return self.top == self.n - 1
+
+Codigo en Java:
+Public clases Pila{
+          Public int arreglo;
+          Public int pop;
+          Public int n;
+Public Pila(int n){
+          arreglo= new int [n];
+           top = -1;
+          this.n = n;
+}
+Public void Push(int e){
+           if(n -1 == top){
+                   System.out.println("pila llena'");}
+            else{
+                   top++;
+                   arreglo[top] = e; }
+}
+Public long pop(){
+            if(isEmty()){
+                    System.out.println("pila vacía");
+                     return -1;}
+             else{
+                     int e =arreglo[top];
+                     top --;
+                      return e;}
+}
+Public long peek{
+             return arreglo[top];
+}
+Public boolean isEmty{
+             return (top == -1);
+}
+Public boolean isFull{
+            return( top == n-1);
+}
+Public static void main(String[] args){
+}
