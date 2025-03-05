@@ -65,4 +65,13 @@ Public boolean isFull{
             return( top == n-1);
 }
 Public static void main(String[] args){
+    Pila pila = new Pila(3);
+    Pila.push(13);
+    Pila.push(22);
+    Pila.push(7);
+    System.out.println("pop() =" + pila.pop());
+    System.out.println("pop() =" + pila.pop());
+    System.out.println("pop() =" + pila.pop());
+}
+}
 }
